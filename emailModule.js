@@ -4,14 +4,14 @@ const uniqueEmails = (function() {
   const dataset = require('./log.json');
   const emails = dataset.emails;
 
-  const report = emails.reduce((obj, current) => {
-    if (obj.hasOwnProperty(current.email)) {
-      obj[current.email]++;
+  const report = emails.reduce((uniqueEmails, current) => {
+    if (uniqueEmails.hasOwnProperty(current.email)) {
+      uniqueEmails[current.email]++;
     } else {
-      obj[current.email] = 1;
+      uniqueEmails[current.email] = 1;
     }
 
-    return obj;
+    return uniqueEmails;
   }, {});
   return report;
 })();
